@@ -1,9 +1,6 @@
 # csurf
 
-[![NPM Version][npm-version-image]][npm-url]
-[![NPM Downloads][npm-downloads-image]][node-url]
-[![Build status][travis-image]][travis-url]
-[![Test coverage][coveralls-image]][coveralls-url]
+Fork from [csurf](https://github.com/expressjs/csurf) and add `checkPathReg` options.
 
 Node.js [CSRF][wikipedia-csrf] protection middleware.
 
