@@ -8,7 +8,7 @@
     "ustbhuangyi<https://github.com/ustbhuangyi>"
   ],
   "license": "MIT",
-  "repository": "expressjs/csurf",
+  "repository": "https://github.com/ustbhuangyi/csurf",
   "dependencies": {
     "cookie": "0.4.0",
     "cookie-signature": "1.0.6",
