@@ -65,6 +65,8 @@ function csurf (options) {
   // generate lookup
   var ignoreMethod = getIgnoredMethods(ignoreMethods)
 
+  var checkPathReg = opts.checkPathReg || null
+
   return function csrf (req, res, next) {
     // validate the configuration against request
     if (!verifyConfiguration(req, sessionKey, cookie)) {
@@ -107,8 +109,9 @@ function csurf (options) {
       setSecret(req, res, sessionKey, secret, cookie)
     }
 
+    var shouldCheck = !checkPathReg || checkPathReg.test(req.path)
     // verify the incoming token
-    if (!ignoreMethod[req.method] && !tokens.verify(secret, value(req))) {
+    if (shouldCheck && !ignoreMethod[req.method] && !tokens.verify(secret, value(req))) {
       return next(createError(403, 'invalid csrf token', {
         code: 'EBADCSRFTOKEN'
       }))
